@@ -33,5 +33,19 @@
             </div>
         </div>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Código a ser executado assim que a página for carregada:
+            $(document).ready(function(){
+				// Limpar a tabela:
+				corpo_tabela.innerHTML = "";
+				// Obter o json:
+				$.getJSON('endpoints/listar.php',function(dados){
+					$(dados).each(function(item){
+						$("#corpo_tabela").append("<tr><td>"+this.frase+"</td><td>"+this.filme+"</td><td>"+this.ano+"</td></tr>");
+					});
+				});
+            });
+    </script>
 </body>
 </html>
